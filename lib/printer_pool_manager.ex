@@ -16,6 +16,7 @@ defmodule WorkerPoolManager do
   end
 
   def handle_cast({:increase_workers, num}, state) do
+    IO.puts("Increasking workers")
     current_num_workers = count_workers()
     new_num_workers = current_num_workers + num
 
@@ -29,6 +30,7 @@ defmodule WorkerPoolManager do
   end
 
   def handle_cast({:decrease_workers, num}, state) do
+    IO.puts("Decreasing workers")
     current_num_workers = count_workers()
     new_num_workers = current_num_workers - num
 

@@ -4,13 +4,13 @@ defmodule Printer do
   @min_sleep_time 5
   @max_sleep_time 50
 
-  def start_link do
+  def start_link(id) do
     IO.puts "Starting printer..."
-    GenServer.start_link(__MODULE__, [])
+    GenServer.start_link(__MODULE__, id)
   end
 
-  def init(_args) do
-    {:ok, []}
+  def init(id) do
+    {:ok, id}
   end
 
   def print(pid, msg) do

@@ -20,14 +20,14 @@ defmodule Reader do
       {:ok, data} ->
         tweet = data["message"]["tweet"]
         text = tweet["text"]
-        PrinterSuper.print(text)
+        LoadBalancer.print(text)
 
       {:error, _} ->
-        PrinterSuper.print(:kill)
+        LoadBalancer.print(:kill)
     end
   end
 
   defp process_event(_) do
-    PrinterSuper.print(:kill)
+    LoadBalancer.print(:kill)
   end
 end
